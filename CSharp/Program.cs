@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            /*
+            /*  Ders1
                 *** Object-Oriented Programing (Nesne Tabanlı Programlama)
                         Nesne tabanlı progralama, bir yazılım geliştirme yaklaşımıdır. 
                     (Yaklaşım, bir işin yapılma mantığı, ilerleyiş biçimi, işin matematiğidir.) Bir çok dil tarafından desteklenir.
