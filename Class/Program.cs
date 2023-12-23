@@ -50,6 +50,12 @@
                     /// </summary>
             */
 
+            /*this keywordü
+                    this keyword'u class'ın object'ini temsil eder.Class içerisindeki field ile method parametrelerini ayırmak için kullanılır.
+                this keyword'u ilgili class yapılanmasının o anki object'ine denk gelir. Class içerisindeki constructer'tan başka bir constructer'ı
+                çağırmak için kullanılır.
+            */
+
             //Referans noktası oluşturuldu. OrnekModel türünde model adında bir referans noktası. Referans noktası alma işlemi. Stackt'te tutulur.
             //OrnekModel model;
 
@@ -145,7 +151,10 @@
             MyClass2.MyClass3 myClass3 = new MyClass2.MyClass3(); //Class'taki class class member'ı olmadığı için referansı üzerinden gideriz.
             */
 
-
+            /*this
+            MyThisClass m1 = new MyThisClass();
+            MyThisClass m2 = new MyThisClass();
+            */
         }
     }
 
@@ -202,7 +211,6 @@
         /*Indexer
         public int this[int a] { get { return a; } set { } }
         */
-
     }
 
     class OrnekModel
@@ -275,6 +283,17 @@
         public class MyClass3
         {
 
+        }
+    }
+
+    class MyThisClass
+    {
+        int a;
+
+        public void X(int a)
+        {
+            //this.X();
+            this.a = a; //this.a demek, class'daki field olurken devamında a ise, method'a gelen parametrenin a değeridir.
         }
     }
 }
