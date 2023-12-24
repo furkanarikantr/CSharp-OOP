@@ -36,6 +36,7 @@
                 *** Sıralama
                 *CSharp
                 *Class
+                *Object
             */
             Console.WriteLine("Notları Tutalım.");
         }
