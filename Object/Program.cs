@@ -77,6 +77,20 @@
                     }   ->Object Initializer kapanış
             */
 
+            /*Object&Value Kopyalama Nedir?
+                    Object kopyalama işlemi özünde iki davranış üzerinden ilerler. Shallow copy ve deep copy.
+                    
+                    Shallow Copy = Var olan bir object'in referansının kopyalanmasıdır. Neticede eldeki değer coğaltılmaz, sadece birden fazla
+                referans ile işaretlenmiş olur.
+                    Deep Copy = Var olan bir object'in object miktarı çoğalır. Aynı member ve data'lara sahip olan ram'de farklı bir object
+                oluşturulur.
+
+                /Ara Not - Value Type - Reference Type Copy Operations
+                    Value Type = Deep Copy(derinlemesine kopyalama) yapar. 
+                    Reference Type = Shallow Copy
+             
+            */
+
             //Orneklendirme
 
             //Oject oluşumu - new operatörü ile MyClass türünde object oluştu, ramde'ki heap bölgesine atandı. Object'e erişmek için, object'in
@@ -105,6 +119,40 @@
             {
                 Age = 10
             };
+
+            //Copy Operations
+
+            //Value Type Variable
+            int a = 5;
+            int b = a;
+            /*Value Type Copy 
+                Deey Copy
+                Stack ->    (int) a = 5;
+                            (int) b = 5;
+            */
+
+            //Reference Type Copy
+            //Shallow Copy
+            MyObjectCopyClass myObjectCopy1 = new MyObjectCopyClass();
+            MyObjectCopyClass myObjectCopy2 = myObjectCopy1;
+            MyObjectCopyClass myObjectCopy3 = myObjectCopy2;
+            MyObjectCopyClass myObjectCopy4 = new MyObjectCopyClass();
+            /*Shallow Copy - Explain
+                Stack ->                                                Heap ->
+                            (MyObjectCopyClass) myObjectCopy1 (111)                 (MyObjectCopyClass) myObjectCopy1 Object - 111
+                            (MyObjectCopyClass) myObjectCopy2 (111)                 (MyObjectCopyClass) myObjectCopy4 Object - 112
+                            (MyObjectCopyClass) myObjectCopy3 (111)
+                            (MyObjectCopyClass) myObjectCopy4 (112)
+            */
+
+            //Deep Copy
+            MyObjectCopyClass m5 = new MyObjectCopyClass();
+            MyObjectCopyClass m6 = m5.Clone();
+            /*Deep Copy - Explain
+                Stack ->                                                Heap ->
+                            (MyObjectCopyClass) m5 (111)                        (MyObjectCopyClass) m5 Object - 111
+                            (MyObjectCopyClass) m6 (112)                        (MyObjectCopyClass) m6 Object - 112 (m5'in klonlanmış halidir.)
+            */
         }
     }
 
@@ -132,5 +180,14 @@
     {
         public int a;
         public int Age { get; set; }
+    }
+
+    class MyObjectCopyClass
+    {
+        public MyObjectCopyClass Clone()
+        {
+            //Memberwiseclone, bir class'ın içerisinde o class'tan üretilmiş olan o anki object'i klonlamamızı sağlayan method'dur.
+            return (MyObjectCopyClass)this.MemberwiseClone();
+        }
     }
 }
