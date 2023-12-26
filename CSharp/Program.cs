@@ -37,6 +37,7 @@
                 *CSharp
                 *Class
                 *Object
+                *Encapsulation
             */
             Console.WriteLine("Notları Tutalım.");
         }

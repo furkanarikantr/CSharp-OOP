@@ -88,7 +88,6 @@
                 /Ara Not - Value Type - Reference Type Copy Operations
                     Value Type = Deep Copy(derinlemesine kopyalama) yapar. 
                     Reference Type = Shallow Copy
-             
             */
 
             //Orneklendirme
