@@ -38,6 +38,7 @@
                 *Class
                 *Object
                 *Encapsulation
+                *Records
             */
             Console.WriteLine("Notları Tutalım.");
         }
