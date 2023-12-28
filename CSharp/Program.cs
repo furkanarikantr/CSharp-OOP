@@ -39,6 +39,7 @@
                 *Object
                 *Encapsulation
                 *Records
+                *Constructor - Destructor - Deconstructor - Static Constructor 
             */
             Console.WriteLine("Notları Tutalım.");
         }

@@ -52,8 +52,10 @@
              
             */
 
-            /*With Expression
-                    
+            /*With Expression - Object Klonlama
+                    Immutable türlerde çalışırken object üzerinde değişiklik yapabilmek için ilgili object'i ya klonlamamız/çoğaltmamız(deep copy), 
+                ya da yeni bi object üretip önceki object'imizdeki değerleri değişikliği yansıtacak şekilde aktarmamız gerekmektedir. Eğer record
+                kullanıyorsa, bu işlem için with method'u yazmadan with expression özelliği gelmiştir.
             */
 
             //Örneklendirme
@@ -89,6 +91,37 @@
                 MyProperty = 5
             }; ;
             Console.WriteLine(x3.Equals(x4));   //Burada sonuç object'in değerleri ön planda olduğu için true dönecektir.
+
+            //With Expression Örnek - Class
+            MyClassWithMethod a1 = new MyClassWithMethod()
+            {
+                MyProperty1 = 5,
+                MyProperty2 = 10
+            };
+            //a1.MyProperty2 = 15 olan bir object'e ihtiyacım varsa read-only class'larda ya atama işlemi tek tek yapılır, ya da with method'u ile.
+            MyClassWithMethod a2 = new MyClassWithMethod()
+            {
+                MyProperty1 = a1.MyProperty1,
+                MyProperty2 = 15
+            };
+            MyClassWithMethod a3 = a1.With(15);
+
+            Console.WriteLine(a1.MyProperty2);
+            Console.WriteLine(a2.MyProperty2);
+            Console.WriteLine(a3.MyProperty2);
+
+            //With Expression Örnek - Record
+            MyRecordWithExpression r1 = new MyRecordWithExpression()
+            {
+                MyProperty1 = 5,
+                MyProperty2 = 10
+            };
+            MyRecordWithExpression r2 = r1 with
+            {
+                MyProperty2 = 15
+            };
+            Console.WriteLine(r1.MyProperty2);
+            Console.WriteLine(r2.MyProperty2);
         }
     }
 
@@ -109,16 +142,37 @@
             {
                 a = value;
             }
-        }   
+        }
     }
 
     class MyClass2
     {
-        public int MyProperty { get; set;}
+        public int MyProperty { get; set; }
     }
 
     record MyRecord
     {
         public int MyProperty { get; init; }
+    }
+
+    class MyClassWithMethod
+    {
+        public int MyProperty1 { get; init; }
+        public int MyProperty2 { get; init; }
+
+        public MyClassWithMethod With(int property2)
+        {
+            return new MyClassWithMethod 
+            { 
+                MyProperty1 = this.MyProperty1, 
+                MyProperty2 = property2 
+            };
+        }
+    }
+
+    record MyRecordWithExpression
+    {
+        public int MyProperty1 { get; init; }
+        public int MyProperty2 { get; init; }
     }
 }
