@@ -41,6 +41,9 @@
                 *Records
                 *Constructor 
                 *Destructor
+                *Deconstruct
+                *Static Constructor
+                *Positional Record
             */
             Console.WriteLine("Notları Tutalım.");
         }
