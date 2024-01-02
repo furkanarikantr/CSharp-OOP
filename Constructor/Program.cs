@@ -20,7 +20,7 @@
                     Constructor özel bir class elemanıdır, yapı olarak bir method'tur. Fakat bildiğimiz method'lardan biraz farklı tanımlanırlar.
                 Constructor method'un adı class adıyla aynı olmalıdır. Geri dönüş değerine sahip değildir. Erişim belirleyicisi public olmalıdır.
             
-                    MyClass ClassName
+                    Class ClassName
                     {
                         public ClassName() -> Constructor Method
                         {
