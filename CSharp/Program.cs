@@ -35,15 +35,16 @@
 
                 *** Sıralama
                 *CSharp
-                *Class
-                *Object
-                *Encapsulation
-                *Records
-                *Constructor 
-                *Destructor
-                *Deconstruct
-                *Static Constructor
-                *Positional Record
+                *Class                  (Sınıf)
+                *Object                 (Nesne)
+                *Encapsulation          (Sarmalama/Kapsulleme)
+                *Records                (Kayıtlar)
+                *Constructor            (Yapıcı Metot)
+                *Destructor             (Yıkıcı Metot)
+                *Deconstruct            (?)
+                *Static Constructor     (Statik Yapıcı Metot)
+                *Positional Record      (?)
+                *Inheritance            (Kalıtım)
             */
             Console.WriteLine("Notları Tutalım.");
         }
