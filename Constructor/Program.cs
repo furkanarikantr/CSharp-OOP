@@ -108,7 +108,7 @@
 
         public MyClassThis(int a, int b) : this(a)
         {
-            Console.WriteLine($"2. Constroctur -> a = {a} | b = {b}");
+            Console.WriteLine($"3. Constroctur -> a = {a} | b = {b}");
         }
     }
 

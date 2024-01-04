@@ -47,6 +47,48 @@
                     }
             */
 
+            /*Base Class(Parent Class) ve Derived Class(Child Class) Nedir ?
+                    Inheritance ilişkisi bulunan iki class arasında, inheritance veren class'a base/parent class, inheritance alan class'a ise 
+                derived/child class denir. Bir class'ın sadece tek bir adet Base class'ı olabilir. Base class dediğimiz kavram, direk inheritance
+                ettiğimiz class kavramıdır. Bir class'ın ise birden fazla derived class'ı olabilir.
+                    
+                    class A ...
+                    class B : A ...
+                    class C : B ...
+                    class D : C ...
+                    Yukarıdaki kurguda A B'nin, B C'nin, C ise D'nin base class'ıdır. D class'ı A, B ve C class'larının erişilebilir member'larını
+                inherit edebilir. Fakat D class'ının bir tane base class'ı vardır, o da C class'ıdır.
+
+                    class A ...
+                    class B : A ...
+                    class C : A ...
+                    class D : A ...
+                    Yukarıdaki kurguda B, C ve D class'ları, A class'ının derived class'larıdır.. B, C ve D class'ları A class'ının erişilebilir
+                member'larını inheritance edebilir.
+                
+                    Yani anlıbileceğimiz üzere, bir class yapısal olarak sadece bir class'tan inheritance edilebilir. Aynı anda birden fazla
+                class'tan inheritance işlemi yapılamaz.
+            */
+
+            /*Inheritance'da Object Üretim Sırası ?
+                    Bir class'tan object üretimi yapılırken inheritance aldığı base class varsa, ilk olarak base class'tan object üretilir. Eğer
+                base class'ında başka bir base class'ı varsa ve bu böyle gidiyorsa, en baştaki base class'a kadar gidilir ve o base class'tan object
+                üretilmeye başlayarak en son ilk istenen object üretilir.
+            */
+
+            /*Bir Class'tan Base Class Constructor'ına Ulaşım
+                    Bir class'tan object üretimi gerçekleştirilirken öncelikle base class'ından object üretimi gerçekleştirilir, bunun bir diğer
+                anlamı öncelikle base class'ın constructor'u çalışır. Bu durumda bizler object üretimi esnasında base class'ta üretilecek olan
+                object'in istediğimiz constructor'larını tetikleyebiliriz veya varsa parametre değerleri verebiliriz. Bu durumu gerçekleştirebilmek
+                için base keyword'u kullanılır. Eğer ki base class'ın constructor'ı sadece parametre alan bir constructor ise derived class'larda
+                o constructor'a bir değer göndermek zorundadır. Base keyword'u ile parametre'de gönderilebilir. Eğer ki base class'ta bos 
+                parametreli bir constructor var ise derived class'ta base ile bir bildirimde bulunmak zorunda değiliz. Çünkü varsayılan olarak
+                inheritance durumunda base class'taki boş parametreli constructor tetiklenir.
+            */
+
+            //Orneklendirme
+            //Ornek 1
+            /*
             Mudur mudur1 = new Mudur();
             mudur1.Adi = "Serkan";
             mudur1.Soyadi = "Arıkan";
@@ -66,6 +108,22 @@
             Console.WriteLine($"Müdür = Adı: {mudur1.Adi} - Soyadı: {mudur1.Soyadi} - Evlilik Durumu: {mudur1.MedeniHal}");
             Console.WriteLine($"Yazılımcı = Adı: {yazilimci1.Adi} - Soyadı: {yazilimci1.Soyadi} - Evlilik Durumu: {yazilimci1.MedeniHal}");
             Console.WriteLine($"Muhasebeci = Adı: {muhasebeci1.Adi} - Soyadı: {muhasebeci1.Soyadi} - Evlilik Durumu: {muhasebeci1.MedeniHal} - Müşavirlik Durumu: {muhasebeci1.Musavir}");
+            */
+
+            //Ornek 2
+            /*
+                    D object'i oluşturulurken önce base class'a gidilir. Eğer bu class'ta da base class varsa, o base class'a gidilir ve en baştaki 
+                base class'a kadar devam eder. Bu base class'a geldiğinde, buradan itibaren, istenilen object'e kadar sırayla object'ler üretilmeye
+                başlanır. Yani D class'ından bir object üretimi istenildiğinde, en baştaki base class A class'ı olduğu için, A class'ından D 
+                class'ına kadar sırayla object'ler üretilir. (A-B-C-D)
+
+                new D();
+            */
+
+            //Ornek 3
+            new MyClass2();
+            new MyClass2(5);
+
         }
     }
 
@@ -89,5 +147,99 @@
     class Muhasebeci : Personel
     {
         public bool Musavir { get; set; }
+    }
+
+    //****************
+
+    class BuyukBaba             //Baba class'ının base class'ıdır.
+    {
+
+    }
+
+    class Baba : BuyukBaba      //BuyukBaba class'ının derived class'ı, Ogul class'ının base class'ıdır.
+    {
+
+    }
+
+    class Anne : BuyukBaba      //BuyukBaba class'ının derived class'ıdır.
+    {
+
+    }
+
+    class Ogul : Baba           //Baba class'ının derived class'ıdır. 
+    {                           //BuyukBaba class'ından da member'ları, Baba class'ının BuyukBabadan inherit etmesiyle alır.
+
+    }
+
+    //****************
+
+    class A
+    {
+        public A()
+        {
+            Console.WriteLine($"{nameof(A)} object.");  //nameof keyword'u, içerisine verilen class'ın ismini, metinsel olarak yazdıran bir yapıdır.
+        }
+    }
+
+    class B : A
+    {
+        public B()
+        {
+            Console.WriteLine($"{nameof(B)} object.");
+        }
+    }
+
+    class C : B
+    {
+        public C()
+        {
+            Console.WriteLine($"{nameof(C)} object.");
+        }
+    }
+
+    class D : C
+    {
+        public D()
+        {
+            Console.WriteLine($"{nameof(D)} object.");
+        }
+    }
+
+    //****************
+
+    class MyClass
+    {
+        public MyClass()
+        {
+
+        }
+
+        public MyClass(int a)
+        {
+
+        }
+
+        public MyClass(string a)
+        {
+            
+        }
+
+        public MyClass(int a, string b)
+        {
+            
+        }
+    }
+
+    class MyClass2 : MyClass
+    {
+        public MyClass2()
+        {
+            
+        }
+
+        public MyClass2(int a) : base(a)
+        {
+            
+        }
     }
 }
