@@ -86,6 +86,32 @@
                 inheritance durumunda base class'taki boş parametreli constructor tetiklenir.
             */
 
+            /*base keyword vs this keyword
+                    this keyword'ı bir class'taki constructor'lar arasında geçiş yapmamızı sağlar. base keyword'u ise, class'taki base class'ın
+                constructor'larından hangisinin tetikleneceğini belirlememize ve varsa parametre değerlerinin derived class'tan verilmesini sağlar.
+                Aynı zamanda this keyword'u, ilgili class'taki o anki object'in member'larına erişebilmemizi sağlarken, aynı şekilde base class'ta
+                ki member'lara erişebilmemizide base keyword'u sağlar.
+            */
+
+            /*Object'lerdeki ToString/Equals/GetHashCode/GetType Method'ları Nereden Gelmektedir ?
+                    Object'lerdeki otomatik gelen bu method'lar inheritance işlem neticesinde gelir. Object'lerin atası, yani en yukarıdaki base
+                class'ı Object class'ı/türüdür.
+                    C# programlama dilinde tüm class'lar Object class'ından türetilir. Bu inheritance işlemi sonucu bu gelen method'lar Object 
+                class'ından gelmektedir.
+            */
+
+            /*Name Hiding (İsim Saklama Sorunsalı)
+                    Inheritance durumlarında base class'lardaki herhangi bir member ile aynı isimde member'a sahip olan object'ler olabilmektedir.
+                Bu durumda üretilen object'in member'larına bakıldığında, buradaki member'ın hangi class'tan geldiği anlaşılamaz. Bu soruna name
+                hiding denir. Üretilen object'teki görülen member base class'taki member değil, derived class'taki member'dır, base class'taki 
+                member gizlenmiştir. Eskiden bu durumlarda new operatörü kullanılır.
+            */
+
+            /*Record'larda Inheritance
+                    Record'lar sadece record'lardan inheritance alabilirler. Class'lardan inheritance işlemi alamaz ve veremezler. Inheritance'ın
+                tüm temel kuralları record'lar içinde geçerlidir.
+            */
+
             //Orneklendirme
             //Ornek 1
             /*
@@ -121,9 +147,16 @@
             */
 
             //Ornek 3
+            /*
             new MyClass2();
             new MyClass2(5);
+            */
 
+            //Ornek 4
+            /*
+            A4 item = new A4();
+            item.X();
+            */
         }
     }
 
@@ -150,7 +183,6 @@
     }
 
     //****************
-
     class BuyukBaba             //Baba class'ının base class'ıdır.
     {
 
@@ -172,7 +204,6 @@
     }
 
     //****************
-
     class A
     {
         public A()
@@ -206,7 +237,6 @@
     }
 
     //****************
-
     class MyClass
     {
         public MyClass()
@@ -240,6 +270,67 @@
         public MyClass2(int a) : base(a)
         {
             
+        }
+    }
+
+    //****************
+    class X
+    {
+        int a;
+        public int b;
+
+        public int MyProperty { get; set; }
+    }
+
+    class Y : X
+    {
+        int c;
+        public void X()
+        {
+            this.c = 5;
+            //base.a = 5; -> erişilemez, erişim belirleyicisi public değil.
+            this.b = 5;
+            base.b = 5;
+            this.MyProperty = 5;
+            base.MyProperty = 5;
+        }
+    }
+
+    //****************
+    class MethodsClass
+    {
+        
+    }
+
+    //****************
+    class A1
+    {
+        public int A { get; set; }
+
+        public void X()
+        {
+
+        }
+    }
+
+    class A2 : A1   //Burada name hiding durumu söz konusudur.
+    {
+        //public new int A { get; set; }    //Eski kullanımlarda new operatörüyle bildirmemiz gerekiyordu.
+        public int A { get; set; }          //Yeni kullanımlarda buna gerek yoktur. Otomatik anlaşılıyor.
+
+
+    }
+
+    class A3 : A2
+    {
+
+    }
+
+    class A4 : A3
+    {
+        public void X() //name hiding
+        {
+
         }
     }
 }
