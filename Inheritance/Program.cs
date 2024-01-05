@@ -16,6 +16,7 @@
                 kalıtsal olarak aktarılacaktır. OOP'de kalıtım, özünde object'lerin birbirinden türemesini sağlayan bir özelliktir ve birçok 
                 özellik ve stratejik yaılanmalar getirmektedir.(virtual - polymorfizm - interface - abstraction - ...) Inheritance, operasyonel
                 olarak gerçekleştirildikten sonra compiler seviyesinde member aktarımı sağlanır.
+
                                                                         Canlı
                                                         İnsan                          Hayvan
                                                 Erkek           Kadın           Kedi            Köpek
