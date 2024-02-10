@@ -77,15 +77,33 @@
                     Fakat bu durumlar kritikdir. Örneğin 3. dereceki derived class'ta override edilen bir member, 4. ve sonraki derecedeki member'larda, override hali ile aktarılacaktır.
             */
 
-            //Ornek 1
-            Terlik terlik1 = new Terlik();
-            terlik1.Bilgi();
+            #region Örnek1
+            //Terlik terlik1 = new Terlik();
+            //terlik1.Bilgi();
 
-            Kalem kalem1 = new Kalem();
-            kalem1.Bilgi();
+            //Kalem kalem1 = new Kalem();
+            //kalem1.Bilgi();
+            #endregion
+
+            #region Örnek2
+            //Maymun m = new Maymun();
+            //m.Konus();
+
+            //Inek i = new Inek();
+            //i.Konus();
+            #endregion
+
+            #region Örnek3
+            Ucgen u = new Ucgen(3, 4);
+            Console.WriteLine(u.AlanHesapla());
+
+            Dortgen d = new Dortgen(3, 4);
+            Console.WriteLine(d.AlanHesapla());
+            #endregion
         }
     }
 
+    #region Örnek1
     class Obje
     {
         public virtual void Bilgi()
@@ -107,4 +125,92 @@
     {
 
     }
+    #endregion
+
+    #region Örnek2
+    class Memeli
+    {
+        public virtual void Konus()
+        {
+            Console.WriteLine("Ben Konuşuyorum.");
+        }
+    }
+
+    class Maymun : Memeli
+    {
+        public override void Konus()
+        {
+            Console.WriteLine("Ben Maymunum.");
+        }
+    }
+
+    class Inek : Memeli 
+    {
+        public override void Konus()
+        {
+            Console.WriteLine("Ben İneğim.");
+        }
+    }
+    #endregion
+
+    #region Örnek3
+    class Sekil
+    {
+        public int _boy;
+        public int _en;
+
+        public Sekil(int boy, int en)
+        {
+            _boy = boy;
+            _en = en;
+        }
+
+        public virtual int AlanHesapla()
+        {
+            return 0;
+        }
+    }
+
+    class Ucgen : Sekil
+    {
+        public Ucgen(int boy, int en) : base(boy, en)
+        {
+            
+        }
+
+        public override int AlanHesapla()
+        {
+            //return base.AlanHesapla();
+            return _boy * (_en / 2);
+        }
+    }
+
+    class Dortgen : Sekil
+    {
+        public Dortgen(int boy, int en) : base(boy, en)
+        {
+            
+        }
+
+        public override int AlanHesapla()
+        {
+            //return base.AlanHesapla();
+            return _boy * _en;
+        }
+    }
+
+    class Dikdörtgen : Sekil
+    {
+        public Dikdörtgen(int boy, int en) : base(boy, en)
+        {
+            
+        }
+
+        public override int AlanHesapla()
+        {
+            //return base.AlanHesapla();
+            return _boy * _en;
+        }
+    }
+    #endregion
 }
