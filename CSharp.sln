@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PositionalRecord", "Positio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inheritance", "Inheritance\Inheritance.csproj", "{111E8D5A-77AA-4B5C-A260-B71F5DDEB400}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualStructures", "VirtualStructures\VirtualStructures.csproj", "{037D101C-A880-4A94-BE06-ED05BF2969D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtualStructures", "VirtualStructures\VirtualStructures.csproj", "{037D101C-A880-4A94-BE06-ED05BF2969D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Polymorphism\Polymorphism.csproj", "{C012FC21-2CC1-4AD5-A745-2E167207DBDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{037D101C-A880-4A94-BE06-ED05BF2969D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{037D101C-A880-4A94-BE06-ED05BF2969D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{037D101C-A880-4A94-BE06-ED05BF2969D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C012FC21-2CC1-4AD5-A745-2E167207DBDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C012FC21-2CC1-4AD5-A745-2E167207DBDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C012FC21-2CC1-4AD5-A745-2E167207DBDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C012FC21-2CC1-4AD5-A745-2E167207DBDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

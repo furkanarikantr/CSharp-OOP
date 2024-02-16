@@ -45,6 +45,8 @@
                 *Static Constructor     (Statik Yapıcı Metot)
                 *Positional Record      (?)
                 *Inheritance            (Kalıtım)
+                *Virtual Structure      (Sanal Yapılar)
+                *Polymorphism           (Çok Biçimlilik)
             */
             Console.WriteLine("Notları Tutalım.");
         }
