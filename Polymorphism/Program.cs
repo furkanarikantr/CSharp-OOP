@@ -13,7 +13,9 @@
                 durumu, polymorphism olarak adlandırılır.
                     Polymorphism, bir class'tan üretilen object'in, kendi class'ının inheritance ile parent class'larla kurduğu ilişki sayesinde, parent class'ların referanslarıyla
                 işaretlenebilmesi durumudur.
-                    Bir object'in birden fazla referans ile işaretlenebilmesi, o object'in birden fazla class'ın özelliklerini kullanabilmesini sağlar.                    
+                    Bir object'in birden fazla referans ile işaretlenebilmesi, o object'in birden fazla class'ın özelliklerini kullanabilmesini sağlar.
+                    Bir object'in kendi class'ı dışında, başka bir object'in class'ının referansıyla işaretlenebilmesi için, kesinlikle class'lar arasında inheritance ilişkisi olmak
+                zorundadır.
            */
 
             /*Polymorphism Felsefesi
@@ -25,6 +27,21 @@
                     Yazılımsal olarak polymorphism'in söz konusu olabilmesi için teknik olarak inheritance işleminin gerçekleşmesi gerekmektedir.
             */
 
+            /*Polymorphism - Inheritance İlişkisi
+                    Bir object'i, kendi class'ının dışındaki bir class referansı ile işaretliyebilmek için kesinlikle ilgili object, o class'tan inheritance almış olmak zorundadır.
+                
+
+            */
+
+            #region Örnek1
+            MyClass m1 = new MyClass2();
+            MyClass2 m2 = new MyClass2();
+            #endregion
         }
     }
+
+    #region Örnek1
+    class MyClass { }
+    class MyClass2 : MyClass { }
+    #endregion
 }
